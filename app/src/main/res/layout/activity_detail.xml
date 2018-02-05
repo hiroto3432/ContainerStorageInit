@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/d_rButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iconImage"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_weight="0.37"
+        app:srcCompat="@drawable/icon0" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="name" />
+
+    <TextView
+        android:id="@+id/limitView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="limit" />
+
+    <TextView
+        android:id="@+id/tempView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="temp" />
+
+    <TextView
+        android:id="@+id/humidView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="humid" />
+
+    <TextView
+        android:id="@+id/amountView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="amount" />
+</LinearLayout>

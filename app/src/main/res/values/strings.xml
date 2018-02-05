@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ContainerStocker</string>
+    <string name="title_home">Home</string>
+    <string name="title_record">Record</string>
+    <string name="title_settings">Settings</string>
+
+
+</resources>
