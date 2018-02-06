@@ -4,14 +4,17 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,7 +22,7 @@ import java.util.ArrayList;
  * Created by i1413 on 2017/12/19.
  */
 
-public class StockActivity extends AppCompatActivity {
+public class StockActivity extends AppCompatActivity implements parameters{
 
     public static ArrayList<Integer> imNum = new ArrayList<>();
     public static ArrayList<String> imName = new ArrayList<>();
@@ -33,13 +36,12 @@ public class StockActivity extends AppCompatActivity {
 
 
         final int ims = loadImageData();
-        final int imshead = 900;
 
         for(int n=0;n<ims;n++) {
 
             Resources res = getResources();
             int imId = res.getIdentifier("icon" + n, "drawable", getPackageName());
-            int ibuttonId = res.getIdentifier(String.valueOf(imshead + n), "drawable", getPackageName());
+            int ibuttonId = res.getIdentifier(String.valueOf(imageshead + n), "drawable", getPackageName());
 
             try {
                 ImageButton imButton = (ImageButton) findViewById(ibuttonId);
@@ -58,7 +60,7 @@ public class StockActivity extends AppCompatActivity {
                         ImageView iView = (ImageView) findViewById(R.id.stockImage);
 
                         iView.setImageResource(resId);
-                        iView.setTag(imshead + iNum);
+                        iView.setTag(imageshead + iNum);
                     }
                 });
             }
@@ -67,8 +69,23 @@ public class StockActivity extends AppCompatActivity {
             }
         }
 
-        imNum = RecordActivity.imNum;
-        imName = RecordActivity.imName;
+        imNum = ItemData.imNum;
+        imName = ItemData.imName;
+
+        Log.d("卍",String.valueOf(imNum.size()));
+        loadItemData();
+
+        for(int n=0;n<imNum.size();n++) {
+
+            try {
+
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
+
 
         Intent intent = getIntent();
         int num = intent.getIntExtra("number", 0);
@@ -101,7 +118,7 @@ public class StockActivity extends AppCompatActivity {
 
                 ImageView selectImage = (ImageView) findViewById(R.id.stockImage);
 
-                int sim = (Integer)(selectImage.getTag()) - imshead;
+                int sim = (Integer)(selectImage.getTag()) - imageshead;
 
                 String sname = name.getText().toString();
                 String slimit = limit.getText().toString();
@@ -121,12 +138,9 @@ public class StockActivity extends AppCompatActivity {
         Resources res = getResources();
 
         int n = 0;
-        final int head = 100;
-        final int imshead = 900;
-        final int row = 5;
 
         while (true) {
-            if (n > head) {
+            if (n > 100) {
                 break;
             }
             try {
@@ -139,16 +153,16 @@ public class StockActivity extends AppCompatActivity {
 
                 ImageButton imButton = new ImageButton(this);
                 imButton.setImageResource(Imid);
-                imButton.setId(imshead + n);
+                imButton.setId(imageshead + n);
 
                 if (n % row == 0) {
 
                     TableRow trow = new TableRow(this);
-                    trow.setId(head + n / row);
+                    trow.setId(tableshead + n / row);
                     tlayout.addView(trow);
                 }
 
-                TableRow a_row = (TableRow) findViewById(head + n / row);
+                TableRow a_row = (TableRow) findViewById(tableshead + n / row);
 
                 a_row.addView(imButton);
                 n++;
@@ -159,6 +173,31 @@ public class StockActivity extends AppCompatActivity {
             }
         }
         return n;
+    }
+
+    private void loadItemData(){
+
+        LinearLayout itemList = (LinearLayout) findViewById(R.id.registedDataList);
+        itemList.removeAllViewsInLayout(); //初期化
+
+
+        for(int n=0;n<imNum.size();n++){
+            LinearLayout item = new LinearLayout(this);
+            item.setId(itemshead + n);
+
+            ImageView imView = new ImageView(this);
+            Resources res = getResources() ;
+
+            int Imid = res.getIdentifier("icon" + imNum.get(n), "drawable", getPackageName());
+            imView.setImageResource(Imid);
+            item.addView(imView); //画像の追加
+
+            TextView txView = new TextView(this);
+            txView.setText(imName.get(n));
+            item.addView(txView); //テキストの追加
+
+            itemList.addView(item); //アイテムをレイアウトに追加
+        }
     }
 
 }

@@ -82,7 +82,7 @@ public class RecordActivity extends AppCompatActivity {
     }
 
     //記録済みデータの読み込み
-    public void loadItemData(){
+    private void loadItemData(){
 
         LinearLayout itemList = (LinearLayout) findViewById(R.id.ItemList);
         itemList.removeAllViewsInLayout(); //初期化
@@ -103,8 +103,6 @@ public class RecordActivity extends AppCompatActivity {
 
             itemList.addView(item); //アイテムをレイアウトに追加
         }
-        imNum.clear();
-        imName.clear(); //追加済みデータの消去
     }
 
 }
