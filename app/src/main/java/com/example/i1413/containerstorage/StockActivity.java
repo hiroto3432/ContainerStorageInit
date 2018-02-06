@@ -3,6 +3,7 @@ package com.example.i1413.containerstorage;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -40,22 +41,22 @@ public class StockActivity extends AppCompatActivity implements parameters{
         for(int n=0;n<ims;n++) {
 
             Resources res = getResources();
-            int imId = res.getIdentifier("icon" + n, "drawable", getPackageName());
             int ibuttonId = res.getIdentifier(String.valueOf(imageshead + n), "drawable", getPackageName());
 
             try {
                 ImageButton imButton = (ImageButton) findViewById(ibuttonId);
 
                 imButton.setClickable(true);
-
-                imButton.setTag(R.integer.imResources,imId);
-                imButton.setTag(R.integer.imButtons,n);
+                imButton.setTag(n);
 
                 imButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int resId = Integer.parseInt(v.getTag(R.integer.imResources).toString());
-                        int iNum =  Integer.parseInt(v.getTag(R.integer.imButtons).toString());
+
+                        int iNum = Integer.parseInt(v.getTag().toString());
+
+                        Resources res = getResources();
+                        int resId = res.getIdentifier("icon" + iNum, "drawable", getPackageName());
 
                         ImageView iView = (ImageView) findViewById(R.id.stockImage);
 
@@ -77,7 +78,35 @@ public class StockActivity extends AppCompatActivity implements parameters{
 
         for(int n=0;n<imNum.size();n++) {
 
+            Resources res = getResources();
+            int linearId = res.getIdentifier(String.valueOf(itemshead + n), "drawable", getPackageName());
+
             try {
+                LinearLayout linear = (LinearLayout) findViewById(linearId);
+
+                linear.setClickable(true);
+                linear.setTag(n);
+
+                linear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        int lNum = Integer.parseInt(v.getTag().toString());
+                        int imgId = ItemData.imNum.get(lNum);
+                        String name = ItemData.imName.get(lNum);
+
+                        TextView nameView = (TextView)findViewById(R.id.nameEdit);
+                        nameView.setText(name);
+
+
+                        Resources res = getResources();
+                        int resId = res.getIdentifier("icon" + imgId, "drawable", getPackageName());
+
+                        ImageView iView = (ImageView) findViewById(R.id.stockImage);
+                        iView.setImageResource(resId);
+                        iView.setTag(imageshead + imgId);
+                    }
+                });
 
             }
             catch(Exception e){
