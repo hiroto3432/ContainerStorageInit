@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * Created by i1413 on 2017/12/19.
  */
 
-public class StockActivity extends AppCompatActivity implements parameters{
+public class StockActivity extends AppCompatActivity implements Parameters{
 
     public static ArrayList<Integer> imNum = new ArrayList<>();
     public static ArrayList<String> imName = new ArrayList<>();
