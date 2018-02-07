@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * Created by i1413 on 2017/12/19.
  */
 
-public class StockActivity extends AppCompatActivity implements Parameters{
+public class StockActivity extends AppCompatActivity implements parameters{
 
     public static ArrayList<Integer> imNum = new ArrayList<>();
     public static ArrayList<String> imName = new ArrayList<>();
@@ -73,7 +73,6 @@ public class StockActivity extends AppCompatActivity implements Parameters{
         imNum = ItemData.imNum;
         imName = ItemData.imName;
 
-        Log.d("卍",String.valueOf(imNum.size()));
         loadItemData();
 
         for(int n=0;n<imNum.size();n++) {
@@ -153,6 +152,7 @@ public class StockActivity extends AppCompatActivity implements Parameters{
                 String slimit = limit.getText().toString();
 
                 ItemData.registData(tag,sname,slimit,sim);
+                stockData();
 
                 Intent intent = new Intent(StockActivity.this, DetailActivity.class);
                 intent.putExtra("number",tag);
@@ -160,6 +160,11 @@ public class StockActivity extends AppCompatActivity implements Parameters{
             }
         });
 
+    }
+
+    private void stockData(){
+        ItemData item = new ItemData();
+        item.updataStockList(this);
     }
 
     private int loadImageData() {

@@ -1,8 +1,8 @@
 {
   "stocklist":[
     {  "id":"1","name" : "お茶",  "limit" : "2/10", "imNum":"2"},
-    {  "id":"2","name" : "null",  "name" : "null", "imNum":"0" },
-    {  "id":"3","name" : "null",  "name" : "null", "imNum":"0" },
-    {  "id":"4","name" : "null",  "name" : "null", "imNum":"0" }
+    {  "id":"2","name" : "null",  "limit" : "null", "imNum":"0" },
+    {  "id":"3","name" : "null",  "limit" : "null", "imNum":"0" },
+    {  "id":"4","name" : "null",  "limit" : "null", "imNum":"0" }
     ]
 }

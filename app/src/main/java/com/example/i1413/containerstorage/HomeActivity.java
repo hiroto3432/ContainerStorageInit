@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+
 public class HomeActivity extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -63,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        Resources res =getResources();
+        Resources res = getResources();
         LinearLayout[] linearlayout = new LinearLayout[4];
 
         for(int n=1;n<=4;n++){
