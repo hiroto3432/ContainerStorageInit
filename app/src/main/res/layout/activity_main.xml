@@ -8,9 +8,9 @@
     android:orientation="vertical"
     tools:context="com.example.i1413.containerstorage.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title" />
+        app:srcCompat="@drawable/titleimage2" />
 </LinearLayout>

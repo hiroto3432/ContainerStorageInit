@@ -14,32 +14,37 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="#99D9EA">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TableRow
                 android:id="@+id/TableRow1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="30dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:id="@+id/LinearLayout1"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="0.5"
+                    android:background="#FFD966"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:weightSum="1">
 
                     <ImageView
                         android:id="@+id/imageView1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete" />
+                        app:srcCompat="@android:drawable/ic_delete"
+                        android:layout_weight="0.95" />
 
                     <TextView
                         android:id="@+id/item1"
@@ -63,16 +68,20 @@
                     android:id="@+id/LinearLayout2"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="0.5"
+                    android:background="#FFD966"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:weightSum="1">
 
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete" />
+                        app:srcCompat="@android:drawable/ic_delete"
+                        android:layout_weight="0.99" />
 
                     <TextView
                         android:id="@+id/item2"
@@ -97,22 +106,26 @@
                 android:id="@+id/TableRow2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="30dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:id="@+id/LinearLayout3"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="0.5"
+                    android:background="#FFD966"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:weightSum="1">
 
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete" />
+                        app:srcCompat="@android:drawable/ic_delete"
+                        android:layout_weight="0.95" />
 
                     <TextView
                         android:id="@+id/item3"
@@ -136,16 +149,20 @@
                     android:id="@+id/LinearLayout4"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="0.5"
+                    android:background="#FFD966"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:weightSum="1">
 
                     <ImageView
                         android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete" />
+                        app:srcCompat="@android:drawable/ic_delete"
+                        android:layout_weight="0.91" />
 
                     <TextView
                         android:id="@+id/item4"
@@ -176,7 +193,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:background="?android:attr/windowBackground"
+        android:background="#99D9EA"
         app:menu="@menu/navigation"
 
         />
