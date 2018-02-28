@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#99D9EA">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,40 +26,66 @@
             android:text="Delete" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iconImage"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_weight="0.37"
-        app:srcCompat="@drawable/icon0" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="#FFD966">
 
-    <TextView
-        android:id="@+id/nameView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="name" />
+        <ImageView
+            android:id="@+id/iconImage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_weight="0.06"
+            android:visibility="visible"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/icon0" />
 
-    <TextView
-        android:id="@+id/limitView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="limit" />
+        <TextView
+            android:id="@+id/tempView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.06"
+            android:text="temp"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/tempView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="temp" />
+        <TextView
+            android:id="@+id/nameView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.06"
+            android:text="name"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/humidView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="humid" />
+        <TextView
+            android:id="@+id/humidView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.06"
+            android:text="humid"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/amountView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="amount" />
+        <TextView
+            android:id="@+id/amountView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.06"
+            android:text="amount"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/limitView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.06"
+            android:text="limit"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 </LinearLayout>

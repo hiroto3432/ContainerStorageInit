@@ -19,12 +19,13 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TableRow
                 android:id="@+id/TableRow1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:padding="20dp">
 
                 <LinearLayout
@@ -42,17 +43,21 @@
                         android:id="@+id/imageView1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.95"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete"
-                        android:layout_weight="0.95" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
                     <TextView
                         android:id="@+id/item1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/deadLine1"
@@ -60,7 +65,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -79,9 +86,9 @@
                         android:id="@+id/imageView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.99"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete"
-                        android:layout_weight="0.99" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
                     <TextView
                         android:id="@+id/item2"
@@ -89,7 +96,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/deadLine2"
@@ -97,7 +105,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </TableRow>
@@ -123,9 +132,9 @@
                         android:id="@+id/imageView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.95"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete"
-                        android:layout_weight="0.95" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
                     <TextView
                         android:id="@+id/item3"
@@ -133,7 +142,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/deadLine3"
@@ -141,7 +151,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -160,9 +171,9 @@
                         android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.91"
                         android:padding="10dp"
-                        app:srcCompat="@android:drawable/ic_delete"
-                        android:layout_weight="0.91" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
                     <TextView
                         android:id="@+id/item4"
@@ -170,7 +181,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/deadLine4"
@@ -178,7 +190,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
