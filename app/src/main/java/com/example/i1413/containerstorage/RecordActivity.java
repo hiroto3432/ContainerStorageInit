@@ -2,6 +2,7 @@ package com.example.i1413.containerstorage;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -25,8 +26,6 @@ public class RecordActivity extends AppCompatActivity {
     public static ArrayList<Integer> imNum = new ArrayList<>();
     public static ArrayList<String> imName = new ArrayList<>();
 
-    RecordActivity(){
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener//navigation view
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -100,6 +99,7 @@ public class RecordActivity extends AppCompatActivity {
             TextView txView = new TextView(this);
             txView.setText(imName.get(n));
             item.addView(txView); //テキストの追加
+            item.setBackgroundColor(Color.rgb(255,217,102));
 
             itemList.addView(item); //アイテムをレイアウトに追加
         }

@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         item.getItemListData(this); //アイテムリストの読み込み
         item.getStockListData(this); //ストックデータの読み込み
 
-/*デバッグ用
-        item.setData(4,"チョコレート","12/31",2,"12.3℃","45%","6枚");//アイテムの初期化
-        item.deleteRecode(this);//記録データ全消去
-        item.deleteRecode(this,n);//n番目の記録データ消去
-*/
+/*デバッグ用*/
+//        item.setData(4,"チョコレート","12/31",2,"12.3℃","45%","6枚");//アイテムの初期化
+//        item.deleteRecode(this);//記録データ全消去
+//        item.deleteRecode(this,n);//n番目の記録データ消去
+/*デバッグ用*/
 
     }
 

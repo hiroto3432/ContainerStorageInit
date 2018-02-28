@@ -158,7 +158,7 @@ public class SettingsActivity extends AppCompatActivity implements Runnable, Vie
 
     @Override
 
-    public void run() {
+    public void run(){
         InputStream mmInStream = null;
 
         Message valueMsg = new Message();
@@ -186,28 +186,104 @@ public class SettingsActivity extends AppCompatActivity implements Runnable, Vie
 
             connectFlg = true;
 
+            int sensor[] = new int[3];
+            int sehead = 0;
+
+            int fc = -1;
+            int value[] = new int[16];
+            for(int n=0;n<value.length;n++){
+                value[n] = -1;
+            }
+            int vhead = 0;
+
             while(isRunning){
 
                 // InputStreamの読み込み
                 bytes = mmInStream.read(buffer);
-                Log.i(TAG,"bytes="+bytes);
+
                 // String型に変換
                 String readMsg = new String(buffer, 0, bytes);
 
                 // null以外なら表示
                 if(readMsg.trim() != null && !readMsg.trim().equals("")){
-                    Log.i(TAG,"value="+readMsg.trim());
+                    Log.i(TAG,"sens:"+readMsg+","+readMsg.toString()+","+readMsg.trim());
 
+                    Log.i(TAG,"value:"+readMsg.trim());
+                    String sts[] = readMsg.trim().split("\n",0);
+                    String st[] = new String[sts.length];
+                    for(int n=0;n<sts.length;n++){
+
+                        if(sts[n].length()==1){
+                            st[n] = sts[n];
+                        }
+
+                        if(sts[n].length() == 2) {
+                            if (!(sts[n].charAt(1) - '0' >= 0 && sts[n].charAt(1) - '0' <= 9)){
+                                //Log.i(TAG,"value:ii:"+sts[n].charAt(0)+","+sts[n].charAt(1));
+                                Log.i(TAG, "value:001");
+                                st[n] = String.valueOf(sts[n].charAt(0));
+                            } else{
+                                st[n] = sts[n];
+                            }
+                        }
+
+                        if (sts[n].length() == 3) {
+                            if (!(sts[n].charAt(2) - '0' >= 0 && sts[n].charAt(2) - '0' <= 9)) {
+                                Log.i(TAG, "value:002");
+                                st[n] = String.valueOf((sts[n].charAt(0) - '0') * 10 + (sts[n].charAt(1) - '0'));
+                                break;
+                            } else {
+                                st[n] = sts[n];
+                            }
+                        }
+
+                        if (sts[n].length() == 4){
+                            if(!(sts[n].charAt(3) - '0' >= 0 && sts[n].charAt(3) - '0' <= 9)) {
+                                Log.i(TAG,"value:003");
+                                st[n] = String.valueOf((sts[n].charAt(0) - '0')*100 + (sts[n].charAt(1) - '0')*10 + (sts[n].charAt(2) - '0'));
+                            } else {
+                            st[n] = sts[n];
+                            }
+                        }
+
+                        Log.i(TAG,"value:RE:"+st[n]);
+                    }
+
+                    for(int n=0;n<st.length;n++){
+                        Log.i(TAG,"value:i:"+st[n]+","+st[n].length());
+                        if(st[n].length() == 1){
+                           if(fc == -1){
+                               fc = Integer.parseInt(st[n]);
+                           }
+                           else {
+                               fc = fc * 10 + Integer.parseInt(st[n]);
+                               value[vhead++] = fc;
+                               fc = -1;
+                           }
+                        }
+                        else{
+                            value[vhead++] = Integer.parseInt(st[n]);
+                        }
+                        Log.i(TAG,"value:"+n+":"+st[n]);
+                    }
                     valueMsg = new Message();
                     valueMsg.what = VIEW_INPUT;
                     valueMsg.obj = readMsg;
                     mHandler.sendMessage(valueMsg);
+
                 }
                 else{
                     // Log.i(TAG,"value=nodata");
                 }
 
+                int k=0;
+                while(value[k]!=-1){
+                    Log.i(TAG,"value::"+value[k]);
+                    k++;
+                }
+
             }
+            Log.i(TAG,"sensor:"+sensor[0]+","+sensor[1]+","+sensor[2]);
         }catch(Exception e){
 
             valueMsg = new Message();
@@ -221,6 +297,8 @@ public class SettingsActivity extends AppCompatActivity implements Runnable, Vie
             isRunning = false;
             connectFlg = false;
         }
+
+
     }
 
     @Override

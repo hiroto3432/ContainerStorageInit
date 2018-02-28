@@ -115,12 +115,10 @@ public class RegistActivity extends AppCompatActivity implements parameters{
         Resources res = getResources();
 
         int n=0;
-        final int head = 100;
-        final int row = 5; //一列に表示するアイコン数
 
         while(true){
 
-            if(n>head){
+            if(n>tableshead){
                 break;
             }
             try{
@@ -139,12 +137,12 @@ public class RegistActivity extends AppCompatActivity implements parameters{
                 if(n%row == 0){ //一列に表示する最大値が格納されている場合は列を追加し、その列に追加していく
 
                     TableRow trow = new TableRow(this);
-                    trow.setId(head + n/row);
+                    trow.setId(tableshead + n/row);
                     tlayout.addView(trow);
 
                 }
 
-                TableRow a_row = (TableRow)findViewById(head + n/row);
+                TableRow a_row = (TableRow)findViewById(tableshead + n/row);
 
                 a_row.addView(imButton); //viewの追加
                 n++;
